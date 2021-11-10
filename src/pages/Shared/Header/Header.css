@@ -1,0 +1,59 @@
+.nav-container {
+  position: sticky !important;
+  top: 0;
+  z-index: 222;
+  background-color: whitesmoke;
+}
+
+.logo-color {
+  color: #cc0000 !important;
+}
+
+.btn-style {
+  border-radius: 15px !important;
+  width: 78px !important;
+  font-size: 16px !important;
+}
+.btn-style-admin {
+  border-radius: 15px !important;
+  width: 90px !important;
+  font-size: 16px !important;
+}
+.btn-style:focus {
+  box-shadow: none !important;
+}
+.cart-box {
+  width: 47px;
+  height: 47px;
+  border-radius: 50%;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu-box {
+  width: 100%;
+}
+.menuText {
+  border-bottom: #fff !important;
+}
+.menuText:hover {
+  color: #cc0000 !important;
+  border-bottom: 1px solid #cc0000 !important;
+}
+
+.loginStyle,
+.loginText {
+  transition: 0.4s;
+}
+.loginStyle:hover {
+  background-color: #cc0000 !important;
+  transition: 0.4s;
+}
+.loginStyle:hover .loginText {
+  color: #fff !important;
+  transition: 0.4s;
+}
+.sign-btn {
+  background-color: #cc0000 !important;
+}

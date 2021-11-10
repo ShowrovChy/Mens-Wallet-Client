@@ -1,0 +1,17 @@
+.admin-ul {
+  list-style: none;
+  line-height: 40px;
+  color: rgb(26, 25, 25);
+  /* margin-top: 36px; */
+}
+
+.admin-ul li .linkColor {
+  color: rgb(26, 25, 25);
+}
+.admin-ul li :hover {
+  color: #cc0000 !important;
+}
+
+.admin-ul .linkColor:hover {
+  color: #cc0000 !important;
+}

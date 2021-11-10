@@ -1,0 +1,45 @@
+.signup-main-container {
+  margin: 50px 0 0 0;
+}
+
+.signup-main-container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.signup-main-container form input,
+textarea {
+  width: 50%;
+  margin-top: 15px;
+  padding: 3px 10px;
+  border-bottom: 2px solid #cc0000 !important;
+  height: 45px;
+}
+.signup-main-container form textarea {
+  border-bottom: 2px solid #cc0000 !important;
+}
+.field:focus {
+  box-shadow: none !important;
+  outline: 0 !important;
+}
+.signup-main-container form :nth-child(4) {
+  background-color: #cc0000;
+  border-radius: 10px !important;
+  margin-top: 30px !important;
+  color: #fff;
+}
+@media only screen and (max-width: 576px) {
+  .form-container {
+    width: 100% !important;
+    display: block !important;
+    text-align: center;
+  }
+  .signup-main-container form input,
+  textarea {
+    width: 90%;
+  }
+  .signup-main-Container {
+    height: 100%;
+  }
+}

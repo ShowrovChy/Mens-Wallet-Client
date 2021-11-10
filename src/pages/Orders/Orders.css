@@ -1,0 +1,43 @@
+.booking-image-div {
+  width: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+}
+.booking-desc {
+  text-align: justify;
+}
+/* --------------------- */
+.add-resort-container {
+  margin: 20px 0;
+}
+
+.add-booking-container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.add-booking-container form input {
+  width: 80%;
+  margin-top: 15px;
+  padding: 3px 10px;
+  border-bottom: 1px solid #ffa500 !important;
+  height: 45px;
+}
+
+.field:focus {
+  box-shadow: none !important;
+  outline: 0 !important;
+}
+.add-booking-container form :nth-child(5) {
+  background-color: #ffa500;
+  color: #fff;
+}
+@media only screen and (max-width: 576px) {
+  .form-wrapper {
+    width: 100% !important;
+  }
+  /*   .login-main-Container {
+    height: 100%;
+  } */
+}
