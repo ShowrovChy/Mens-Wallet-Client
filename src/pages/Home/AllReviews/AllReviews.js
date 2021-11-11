@@ -1,8 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import SingleReview from "./SingleReview/SingleReview";
-
+import "./AllReviews.css";
 const AllReviews = () => {
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
@@ -16,12 +16,12 @@ const AllReviews = () => {
   }, []);
   return (
     <div className="allReviews-container">
-      <Container className="w-100 mt-5">
+      <Container className="w-100 reviews-wrapper ">
         <h1 className=" text-uppercase text-center fw-bold ps-3 mb-5">
           <span className="text-danger">Customers</span> Reviews{" "}
         </h1>
 
-        <Row className="g-5 w-100 mx-auto">
+        <Row className="g-5 w-100 mx-auto mt-5">
           {reviews.map((review) => (
             <SingleReview review={review}></SingleReview>
           ))}
