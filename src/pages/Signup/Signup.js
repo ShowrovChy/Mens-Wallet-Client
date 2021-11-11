@@ -34,8 +34,6 @@ const Signup = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
-
     handleUserRegisterWithEmail(data.email, data.password)
       .then((result) => {
         updateProfile(auth.currentUser, {

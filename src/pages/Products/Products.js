@@ -15,7 +15,6 @@ const Products = () => {
         setProducts(data);
       });
   }, []);
-  console.log(products);
   return (
     <>
       <Header></Header>

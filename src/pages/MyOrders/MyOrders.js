@@ -22,7 +22,6 @@ const MyOrders = () => {
       axios
         .delete(`https://pure-inlet-82300.herokuapp.com/deleteOrder/${id}`)
         .then((result) => {
-          console.log(result);
           if (result.data.deletedCount) {
             setIsLoading(!false);
           }

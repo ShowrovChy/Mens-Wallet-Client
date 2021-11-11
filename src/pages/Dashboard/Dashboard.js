@@ -36,7 +36,6 @@ const Dashboard = () => {
         }
       });
   }, [user?.email]);
-  console.log(isAdmin);
   window.scroll(0, 0);
   return (
     <>

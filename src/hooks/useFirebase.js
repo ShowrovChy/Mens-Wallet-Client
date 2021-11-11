@@ -49,7 +49,7 @@ const useFirebase = () => {
       body: JSON.stringify({ email, name }),
     })
       .then((res) => res.json())
-      .then((result) => console.log(result));
+      .then();
   };
 
   // Sign Out

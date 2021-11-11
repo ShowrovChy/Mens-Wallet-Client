@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import "./MakeAdmin.css";
 import { useForm } from "react-hook-form";
 const MakeAdmin = () => {
   const { register, handleSubmit, reset } = useForm();
-
   const onSubmit = (data) => {
     fetch("https://pure-inlet-82300.herokuapp.com/makeAdmin", {
       method: "PUT",
@@ -11,8 +10,11 @@ const MakeAdmin = () => {
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
-      .then((result) => console.log(result));
-    console.log(data);
+      .then((result) => {
+        if (result.modifiedCount) {
+          alert("Admin Made Successfully");
+        }
+      });
     reset();
   };
   return (

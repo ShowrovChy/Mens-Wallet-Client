@@ -11,7 +11,6 @@ const AllReviews = () => {
       .then((result) => {
         const data = result.data;
         setReviews(data);
-        console.log(reviews);
       });
   }, []);
   return (

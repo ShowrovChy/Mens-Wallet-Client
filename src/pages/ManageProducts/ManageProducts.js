@@ -10,7 +10,6 @@ const ManageProducts = () => {
     axios
       .get("https://pure-inlet-82300.herokuapp.com/allProducts")
       .then((result) => {
-        console.log(result.data);
         setBookedResort(result.data);
       });
   }, [isLoading]);
@@ -23,7 +22,6 @@ const ManageProducts = () => {
       axios
         .delete(`https://pure-inlet-82300.herokuapp.com/deleteProduct/${id}`)
         .then((result) => {
-          console.log(result);
           if (result.data.deletedCount) {
             setIsLoading(!false);
           }

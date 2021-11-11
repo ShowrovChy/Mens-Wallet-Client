@@ -31,7 +31,6 @@ const Orders = () => {
     setMatchedData(matched);
   }, [id, resorts]);
 
-  console.log(user.email);
   const onSubmit = (data) => {
     data.email = user.email;
     data.status = "Pending";
