@@ -26,11 +26,11 @@ const Products = () => {
           alt=""
         />
         <Container className="w-100 mt-5">
-          <h1 className=" text-uppercase fw-bold ps-3 mb-5">
+          <h1 className=" text-uppercase fw-bold ps-5 mb-5">
             <span className="text-danger">Explore</span> Men's Wallet{" "}
           </h1>
 
-          <Row className="g-5">
+          <Row className="g-5 w-100 ps-5">
             {products.map((product) => (
               <Col
                 lg={4}

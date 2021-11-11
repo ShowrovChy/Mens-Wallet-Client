@@ -1,5 +1,5 @@
 .review-text-box {
-  height: 55px;
+  min-height: 55px;
 }
 
 .review-desc-main-box {

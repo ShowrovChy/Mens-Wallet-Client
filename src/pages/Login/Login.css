@@ -1,12 +1,3 @@
-.iconStyle {
-  width: 40px;
-  margin-right: 4px;
-  border-radius: 50%;
-}
-.gg-icon {
-  width: 37px;
-}
-
 .login-main-Container {
   margin: 50px 0 0 0;
 }
@@ -17,17 +8,14 @@
   justify-content: center;
   align-items: center;
 }
-.login-main-Container form input,
-textarea {
+.login-main-Container form input {
   width: 50%;
   margin-top: 15px;
   padding: 3px 10px;
   border-bottom: 2px solid #cc0000 !important;
   height: 45px;
 }
-.login-main-Container form textarea {
-  border-bottom: 2px solid #cc0000 !important;
-}
+
 .field:focus {
   box-shadow: none !important;
   outline: 0 !important;

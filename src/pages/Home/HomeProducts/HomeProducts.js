@@ -20,7 +20,7 @@ const HomeProducts = () => {
           <span className="text-danger">Explore</span> Men's Wallet{" "}
         </h1>
 
-        <Row className="g-5 mt-5 w-100">
+        <Row className="g-5 mt-5 w-100 mx-auto">
           {products.map((product) => (
             <Col
               lg={4}

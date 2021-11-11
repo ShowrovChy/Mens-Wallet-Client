@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import Rating from "react-rating";
+import SingleReview from "./SingleReview/SingleReview";
 
 const AllReviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -11,6 +11,7 @@ const AllReviews = () => {
       .then((result) => {
         const data = result.data;
         setReviews(data);
+        console.log(reviews);
       });
   }, []);
   return (
@@ -20,36 +21,9 @@ const AllReviews = () => {
           <span className="text-danger">Customers</span> Reviews{" "}
         </h1>
 
-        <Row className="g-5 w-100">
+        <Row className="g-5 w-100 mx-auto">
           {reviews.map((review) => (
-            <Col
-              lg={4}
-              md={6}
-              sx={12}
-              key={review?._id}
-              className="column-products px-3"
-            >
-              <div className="col-inside-wrapper ">
-                <div className="review-desc-main-box mt-3 text-center">
-                  <div className="review-text-box">
-                    <p className="ps-2 text-secondary">{review?.review}</p>
-                    <h5 className=" ps-2">{review?.name}</h5>
-                  </div>
-                  <div className=" review-desc-box d-flex mt-3 align-items-center justify-content-around">
-                    <span className=" ms-3 text-warning fw-bold fs-2">
-                      <h4>
-                        <Rating
-                          readonly
-                          emptySymbol="far fa-star icon-color"
-                          fullSymbol="fas fa-star icon-color"
-                          initialRating={review?.rating}
-                        />
-                      </h4>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </Col>
+            <SingleReview review={review}></SingleReview>
           ))}
         </Row>
       </Container>

@@ -53,7 +53,11 @@ const Orders = () => {
         <Row className="w-100 py-5">
           <Col md={6} className=" ">
             <div className="booking-image-div">
-              <img className="img-fluid" src={matchedData?.image} alt="" />
+              <img
+                className="img-fluid image-styles"
+                src={matchedData?.image}
+                alt=""
+              />
             </div>
             <div>
               <h3 className="text-danger my-3">{matchedData?.name}</h3>

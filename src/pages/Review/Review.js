@@ -41,6 +41,7 @@ const Review = () => {
           />
 
           <textarea
+            wrap="soft"
             className="mt-3 border-0 field"
             {...register("review", { required: true })}
             placeholder="Feedback"

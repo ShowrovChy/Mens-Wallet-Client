@@ -3,6 +3,10 @@
   border-radius: 15px;
   overflow: hidden;
 }
+.image-styles:hover {
+  transform: scale(1.2);
+  transition: 0.6s;
+}
 .booking-desc {
   text-align: justify;
 }
@@ -32,12 +36,10 @@
 .add-booking-container form :nth-child(5) {
   background-color: #cc0000;
   color: #fff;
+  border-radius: 15px;
 }
 @media only screen and (max-width: 576px) {
   .form-wrapper {
     width: 100% !important;
   }
-  /*   .login-main-Container {
-    height: 100%;
-  } */
 }
