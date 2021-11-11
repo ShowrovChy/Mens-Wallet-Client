@@ -1,20 +1,20 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Table, Button } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 import { MdDelete } from "react-icons/md";
 
 const ManageProducts = () => {
-  const [bookedResort, setBookedResort] = useState([]);
+  const [orderedProduct, setOrderedProduct] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     axios
       .get("https://pure-inlet-82300.herokuapp.com/allProducts")
       .then((result) => {
-        setBookedResort(result.data);
+        setOrderedProduct(result.data);
       });
   }, [isLoading]);
 
-  // Handle Booking Remove
+  // Handle Oder Remove
   const handleRemove = (id) => {
     setIsLoading(false);
     const proceed = window.confirm("Do you want to delete this product?");
@@ -40,7 +40,7 @@ const ManageProducts = () => {
           </tr>
         </thead>
         <tbody>
-          {bookedResort.map((BR, index) => (
+          {orderedProduct.map((BR, index) => (
             <tr key={BR._id}>
               <td>{index + 1} </td>
               <td>{BR?.name}</td>

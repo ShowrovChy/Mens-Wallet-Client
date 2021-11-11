@@ -3,6 +3,7 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import "./Review.css";
 import useAuth from "../../hooks/useAuth";
+import swal from "sweetalert";
 const Review = () => {
   const { user } = useAuth();
   const {
@@ -16,7 +17,12 @@ const Review = () => {
       .post("https://pure-inlet-82300.herokuapp.com/addReview", data)
       .then((result) => {
         if (result.data.insertedId) {
-          alert("Successfully Review Added");
+          swal({
+            title: "Thank You",
+            text: "Successfully Review Added",
+            icon: "success",
+            button: "OK",
+          });
           reset();
         }
       });
@@ -24,7 +30,7 @@ const Review = () => {
   window.scroll(0, 0);
   return (
     <div>
-      <div className="add-resort-container">
+      <div className="add-product-container">
         <h1 className="text-center text-danger">Please Share Your Feedback</h1>
         <form onSubmit={handleSubmit(onSubmit)} className="mt-1 form-wrapper">
           <input

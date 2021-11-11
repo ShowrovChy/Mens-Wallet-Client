@@ -6,11 +6,11 @@ import { useForm } from "react-hook-form";
 import "./Orders.css";
 import useAuth from "../../hooks/useAuth";
 import Header from "../Shared/Header/Header";
+import swal from "sweetalert";
 const Orders = () => {
   const { user } = useAuth();
   const { id } = useParams();
-  const [resorts, setResorts] = useState([]);
-  //   const [singleData, setSingleData] = useState([]);
+  const [products, setProducts] = useState([]);
   const [matchedData, setMatchedData] = useState({});
   const {
     register,
@@ -22,14 +22,14 @@ const Orders = () => {
     axios
       .get("https://pure-inlet-82300.herokuapp.com/allProducts")
       .then((result) => {
-        setResorts(result.data);
+        setProducts(result.data);
       });
   }, []);
 
   useEffect(() => {
-    const matched = resorts.find((d) => d._id == id);
+    const matched = products.find((d) => d._id == id);
     setMatchedData(matched);
-  }, [id, resorts]);
+  }, [id, products]);
 
   const onSubmit = (data) => {
     data.email = user.email;
@@ -38,7 +38,12 @@ const Orders = () => {
       .post("https://pure-inlet-82300.herokuapp.com/addOrder", data)
       .then((result) => {
         if (result.data.insertedId) {
-          alert("Successfully Booking Added");
+          swal({
+            title: "Thank's For Ordering",
+            text: "Successfully Order Added",
+            icon: "success",
+            button: "OK",
+          });
           reset();
         }
       });
@@ -72,7 +77,7 @@ const Orders = () => {
             </div>
           </Col>
           <Col md={6} className="border-start border-2 ">
-            <div className="add-booking-container">
+            <div className="add-order-container">
               <h2 className="text-center text-danger">
                 {" "}
                 Order Your Favourite One
@@ -83,7 +88,6 @@ const Orders = () => {
               >
                 <input
                   {...register("name", { required: true })}
-                  // placeholder=" your name"
                   defaultValue={user?.displayName}
                   className="border-0 field"
                 />
@@ -95,7 +99,6 @@ const Orders = () => {
                   className="border-0 field"
                 />
                 <input
-                  // type="date"
                   value={new Date().toLocaleDateString()}
                   className="border-0 field"
                   {...register("date", { required: true })}
@@ -103,7 +106,6 @@ const Orders = () => {
 
                 <input
                   {...register("product", { required: true })}
-                  // placeholder=" add resort name"
                   value={matchedData?.name}
                   className="border-0 field"
                 />

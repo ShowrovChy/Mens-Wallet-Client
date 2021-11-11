@@ -3,17 +3,17 @@ import React, { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import { Table, Button, Container } from "react-bootstrap";
 const MyOrders = () => {
-  const [bookings, setBookings] = useState([]);
+  const [orders, setOrders] = useState([]);
   const { user } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     axios
       .get(`https://pure-inlet-82300.herokuapp.com/myOrders/${user?.email}`)
-      .then((result) => setBookings(result?.data));
+      .then((result) => setOrders(result?.data));
   }, [user.email, isLoading]);
 
-  // Handle Booking Remove
+  // Handle Order Remove
   const handleRemove = (id) => {
     setIsLoading(false);
     const proceed = window.confirm("Do you want to delete this product?");
@@ -45,7 +45,7 @@ const MyOrders = () => {
             </tr>
           </thead>
           <tbody>
-            {bookings.map((BR, index) => (
+            {orders.map((BR, index) => (
               <tr key={BR._id}>
                 <td>{index + 1} </td>
                 <td>{BR?.name}</td>

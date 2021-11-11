@@ -3,20 +3,20 @@ import React, { useEffect, useState } from "react";
 import { Table, Button } from "react-bootstrap";
 import { MdDelete } from "react-icons/md";
 const ManageAllOrders = () => {
-  const [bookedResort, setBookedResort] = useState([]);
+  const [orderedProduct, setOrderedProduct] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     axios
       .get("https://pure-inlet-82300.herokuapp.com/manageAllOrders")
       .then((result) => {
-        setBookedResort(result.data);
+        setOrderedProduct(result.data);
       });
   }, [isLoading]);
 
-  // Handle Booking Remove
+  // Handle order Remove
   const handleRemove = (id) => {
     setIsLoading(false);
-    const proceed = window.confirm("Do you want to delete this Booking?");
+    const proceed = window.confirm("Do you want to delete this Order?");
     if (proceed) {
       axios
         .delete(`https://pure-inlet-82300.herokuapp.com/deleteOrder/${id}`)
@@ -27,10 +27,10 @@ const ManageAllOrders = () => {
         });
     }
   };
-  // Handle Booking Remove
+  // Handle Order Remove
   const handleApprove = (id) => {
     setIsLoading(false);
-    const proceed = window.confirm("Do you want to approve this Booking?");
+    const proceed = window.confirm("Do you want to approve this oder?");
     if (proceed) {
       axios
         .put(`https://pure-inlet-82300.herokuapp.com/approveOrder/${id}`)
@@ -55,7 +55,7 @@ const ManageAllOrders = () => {
           </tr>
         </thead>
         <tbody>
-          {bookedResort.map((BR, index) => (
+          {orderedProduct.map((BR, index) => (
             <tr key={BR._id}>
               <td>{index + 1} </td>
               <td>{BR?.name}</td>

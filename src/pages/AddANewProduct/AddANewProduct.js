@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import "./AddANewProduct.css";
 import { useForm } from "react-hook-form";
+import swal from "sweetalert";
 const AddANewProduct = () => {
   const {
     register,
@@ -14,14 +15,19 @@ const AddANewProduct = () => {
       .post("https://pure-inlet-82300.herokuapp.com/addProducts", data)
       .then((result) => {
         if (result.data.insertedId) {
-          alert("Successfully Event Added");
+          swal({
+            title: "Excellent.!",
+            text: "Successfully Product Added",
+            icon: "success",
+            button: "OK",
+          });
           reset();
         }
       });
   };
   window.scroll(0, 0);
   return (
-    <div className="add-resort-container">
+    <div className="add-product-container">
       <h1 className="text-center text-danger">Add the latest Product</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input

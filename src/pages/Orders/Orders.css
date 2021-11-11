@@ -11,17 +11,17 @@
   text-align: justify;
 }
 /* --------------------- */
-.add-resort-container {
+.add-product-container {
   margin: 20px 0;
 }
 
-.add-booking-container form {
+.add-order-container form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.add-booking-container form input {
+.add-order-container form input {
   width: 80%;
   margin-top: 15px;
   padding: 3px 10px;
@@ -33,7 +33,7 @@
   box-shadow: none !important;
   outline: 0 !important;
 }
-.add-booking-container form :nth-child(5) {
+.add-order-container form :nth-child(5) {
   background-color: #cc0000;
   color: #fff;
   border-radius: 15px;

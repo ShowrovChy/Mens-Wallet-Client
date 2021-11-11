@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./MakeAdmin.css";
 import { useForm } from "react-hook-form";
+import swal from "sweetalert";
 const MakeAdmin = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
@@ -12,7 +13,12 @@ const MakeAdmin = () => {
       .then((res) => res.json())
       .then((result) => {
         if (result.modifiedCount) {
-          alert("Admin Made Successfully");
+          swal({
+            title: "Excellent.!",
+            text: "Admin Made Successfully",
+            icon: "success",
+            button: "OK",
+          });
         }
       });
     reset();

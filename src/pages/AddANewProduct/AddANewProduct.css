@@ -1,14 +1,10 @@
-.add-resort-container {
-  /* margin: 20px 0; */
-}
-
-.add-resort-container form {
+.add-product-container form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.add-resort-container form input,
+.add-product-container form input,
 textarea {
   width: 60%;
   margin-top: 15px;
@@ -16,14 +12,14 @@ textarea {
   border-bottom: 2px solid #cc0000 !important;
   height: 45px;
 }
-.add-resort-container form textarea {
+.add-product-container form textarea {
   border-bottom: 2px solid #cc0000 !important;
 }
 .field:focus {
   box-shadow: none !important;
   outline: 0 !important;
 }
-.add-resort-container form :nth-child(5) {
+.add-product-container form :nth-child(5) {
   background-color: #cc0000;
   border-radius: 10px !important;
   margin-top: 30px !important;
