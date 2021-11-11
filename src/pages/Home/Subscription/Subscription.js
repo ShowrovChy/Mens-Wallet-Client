@@ -7,9 +7,9 @@ const Subscription = () => {
       <div className="text-center w-75">
         <h5 className="top-sub-text">JOIN OUR MAILING LIST</h5>
         <h1 className="news-text">Newsletter Sign Up</h1>
-        <p className="text-light">Sign Up For News And Special Offers</p>
+        <p className="text-danger">Sign Up For News And Special Offers</p>
 
-        <InputGroup className="mb-3">
+        <InputGroup className="mb-3 input-group ">
           <FormControl
             placeholder="Add Your Email Address"
             aria-label="Add Your Email Address"

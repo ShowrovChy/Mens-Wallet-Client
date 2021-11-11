@@ -2,7 +2,7 @@
   width: 100%;
   height: 70vh;
   margin-top: 100px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.658), rgba(0, 0, 0, 0.658)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.719), rgba(0, 0, 0, 0.705)),
     url("https://i.ibb.co/KhbPPC6/best-wallets-men-luxury-luxe-digital.jpg");
   background-size: cover;
   background-position: center;
@@ -10,8 +10,20 @@
 }
 .top-sub-text {
   color: whitesmoke;
+  margin-bottom: 50px;
 }
 .news-text {
   font-size: 4em;
   color: whitesmoke;
+  margin-bottom: 40px;
+}
+.input-group {
+  width: 600px !important;
+  margin: auto;
+}
+@media only screen and (max-width: 576px) {
+  .input-group {
+    width: 100% !important;
+    margin: auto;
+  }
 }

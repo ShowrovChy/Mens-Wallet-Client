@@ -52,14 +52,11 @@ const Orders = () => {
               <img className="img-fluid" src={matchedData?.image} alt="" />
             </div>
             <div>
-              <h2 className="text-warning my-3">{matchedData?.name}</h2>
+              <h3 className="text-danger my-3">{matchedData?.name}</h3>
               <div>
                 <h4>
-                  Booking Code :{" "}
-                  <span className="text-warning">
-                    {" "}
-                    {matchedData?.bookingCode}
-                  </span>{" "}
+                  Price :{" "}
+                  <span className="text-danger"> {matchedData?.cost}</span>{" "}
                 </h4>
               </div>
               <p className="text-secondary booking-desc mt-3">
@@ -71,7 +68,7 @@ const Orders = () => {
             <div className="add-booking-container">
               <h2 className="text-center text-danger">
                 {" "}
-                Explore Resort Hotels
+                Order Your Favourite One
               </h2>
               <form
                 onSubmit={handleSubmit(onSubmit)}
@@ -98,7 +95,7 @@ const Orders = () => {
                 />
 
                 <input
-                  {...register("resort", { required: true })}
+                  {...register("product", { required: true })}
                   // placeholder=" add resort name"
                   value={matchedData?.name}
                   className="border-0 field"

@@ -12,13 +12,13 @@ const AllReviews = () => {
     });
   }, []);
   return (
-    <div className="homeProducts-container">
+    <div className="allReviews-container">
       <Container className="w-100 mt-5">
         <h1 className=" text-uppercase text-center fw-bold ps-3 mb-5">
           <span className="text-danger">Customers</span> Reviews{" "}
         </h1>
 
-        <Row className="g-5">
+        <Row className="g-5 w-100">
           {reviews.map((review) => (
             <Col
               lg={4}
