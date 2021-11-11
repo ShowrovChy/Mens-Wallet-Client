@@ -9,7 +9,7 @@ const MyOrders = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/myOrders/${user?.email}`)
+      .get(`https://pure-inlet-82300.herokuapp.com/myOrders/${user?.email}`)
       .then((result) => setBookings(result?.data));
   }, [user.email, isLoading]);
 
@@ -19,12 +19,14 @@ const MyOrders = () => {
     const proceed = window.confirm("Do you want to delete this product?");
 
     if (proceed) {
-      axios.delete(`http://localhost:5000/deleteOrder/${id}`).then((result) => {
-        console.log(result);
-        if (result.data.deletedCount) {
-          setIsLoading(!false);
-        }
-      });
+      axios
+        .delete(`https://pure-inlet-82300.herokuapp.com/deleteOrder/${id}`)
+        .then((result) => {
+          console.log(result);
+          if (result.data.deletedCount) {
+            setIsLoading(!false);
+          }
+        });
     }
   };
   window.scroll(0, 0);

@@ -6,9 +6,11 @@ const ManageAllOrders = () => {
   const [bookedResort, setBookedResort] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
-    axios.get("http://localhost:5000/manageAllOrders").then((result) => {
-      setBookedResort(result.data);
-    });
+    axios
+      .get("https://pure-inlet-82300.herokuapp.com/manageAllOrders")
+      .then((result) => {
+        setBookedResort(result.data);
+      });
   }, [isLoading]);
 
   // Handle Booking Remove
@@ -16,11 +18,13 @@ const ManageAllOrders = () => {
     setIsLoading(false);
     const proceed = window.confirm("Do you want to delete this Booking?");
     if (proceed) {
-      axios.delete(`http://localhost:5000/deleteOrder/${id}`).then((result) => {
-        if (result.data.deletedCount) {
-          setIsLoading(!false);
-        }
-      });
+      axios
+        .delete(`https://pure-inlet-82300.herokuapp.com/deleteOrder/${id}`)
+        .then((result) => {
+          if (result.data.deletedCount) {
+            setIsLoading(!false);
+          }
+        });
     }
   };
   // Handle Booking Remove
@@ -28,11 +32,13 @@ const ManageAllOrders = () => {
     setIsLoading(false);
     const proceed = window.confirm("Do you want to approve this Booking?");
     if (proceed) {
-      axios.put(`http://localhost:5000/approveOrder/${id}`).then((result) => {
-        if (result.data.modifiedCount) {
-          setIsLoading(!false);
-        }
-      });
+      axios
+        .put(`https://pure-inlet-82300.herokuapp.com/approveOrder/${id}`)
+        .then((result) => {
+          if (result.data.modifiedCount) {
+            setIsLoading(!false);
+          }
+        });
     }
   };
   return (

@@ -6,10 +6,12 @@ import "./HomeProducts.css";
 const HomeProducts = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:5000/allProducts").then((result) => {
-      const data = result.data;
-      setProducts(data.slice(0, 6));
-    });
+    axios
+      .get("https://pure-inlet-82300.herokuapp.com/allProducts")
+      .then((result) => {
+        const data = result.data;
+        setProducts(data.slice(0, 6));
+      });
   }, []);
   return (
     <div className="homeProducts-container">

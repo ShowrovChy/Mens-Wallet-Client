@@ -7,10 +7,12 @@ const ManageProducts = () => {
   const [bookedResort, setBookedResort] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
-    axios.get("http://localhost:5000/allProducts").then((result) => {
-      console.log(result.data);
-      setBookedResort(result.data);
-    });
+    axios
+      .get("https://pure-inlet-82300.herokuapp.com/allProducts")
+      .then((result) => {
+        console.log(result.data);
+        setBookedResort(result.data);
+      });
   }, [isLoading]);
 
   // Handle Booking Remove
@@ -19,7 +21,7 @@ const ManageProducts = () => {
     const proceed = window.confirm("Do you want to delete this product?");
     if (proceed) {
       axios
-        .delete(`http://localhost:5000/deleteProduct/${id}`)
+        .delete(`https://pure-inlet-82300.herokuapp.com/deleteProduct/${id}`)
         .then((result) => {
           console.log(result);
           if (result.data.deletedCount) {

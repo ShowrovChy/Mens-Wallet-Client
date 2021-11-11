@@ -43,7 +43,7 @@ const useFirebase = () => {
   }, [auth]);
 
   const UserInformation = (email, name) => {
-    fetch("http://localhost:5000/users", {
+    fetch("https://pure-inlet-82300.herokuapp.com/users", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ email, name }),

@@ -19,9 +19,11 @@ const Orders = () => {
     formState: { errors },
   } = useForm();
   useEffect(() => {
-    axios.get("http://localhost:5000/allProducts").then((result) => {
-      setResorts(result.data);
-    });
+    axios
+      .get("https://pure-inlet-82300.herokuapp.com/allProducts")
+      .then((result) => {
+        setResorts(result.data);
+      });
   }, []);
 
   useEffect(() => {
@@ -33,12 +35,14 @@ const Orders = () => {
   const onSubmit = (data) => {
     data.email = user.email;
     data.status = "Pending";
-    axios.post("http://localhost:5000/addOrder", data).then((result) => {
-      if (result.data.insertedId) {
-        alert("Successfully Booking Added");
-        reset();
-      }
-    });
+    axios
+      .post("https://pure-inlet-82300.herokuapp.com/addOrder", data)
+      .then((result) => {
+        if (result.data.insertedId) {
+          alert("Successfully Booking Added");
+          reset();
+        }
+      });
   };
   window.scroll(0, 0);
   return (

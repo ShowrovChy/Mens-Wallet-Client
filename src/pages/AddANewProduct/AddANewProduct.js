@@ -10,12 +10,14 @@ const AddANewProduct = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    axios.post("http://localhost:5000/addProducts", data).then((result) => {
-      if (result.data.insertedId) {
-        alert("Successfully Event Added");
-        reset();
-      }
-    });
+    axios
+      .post("https://pure-inlet-82300.herokuapp.com/addProducts", data)
+      .then((result) => {
+        if (result.data.insertedId) {
+          alert("Successfully Event Added");
+          reset();
+        }
+      });
   };
   window.scroll(0, 0);
   return (

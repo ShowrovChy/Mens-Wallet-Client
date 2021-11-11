@@ -12,12 +12,14 @@ const Review = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    axios.post("http://localhost:5000/addReview", data).then((result) => {
-      if (result.data.insertedId) {
-        alert("Successfully Review Added");
-        reset();
-      }
-    });
+    axios
+      .post("https://pure-inlet-82300.herokuapp.com/addReview", data)
+      .then((result) => {
+        if (result.data.insertedId) {
+          alert("Successfully Review Added");
+          reset();
+        }
+      });
   };
   window.scroll(0, 0);
   return (

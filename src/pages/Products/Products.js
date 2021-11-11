@@ -8,10 +8,12 @@ const Products = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/allProducts").then((result) => {
-      const data = result.data;
-      setProducts(data);
-    });
+    axios
+      .get("https://pure-inlet-82300.herokuapp.com/allProducts")
+      .then((result) => {
+        const data = result.data;
+        setProducts(data);
+      });
   }, []);
   console.log(products);
   return (

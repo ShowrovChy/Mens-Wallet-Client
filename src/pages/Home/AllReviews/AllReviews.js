@@ -6,10 +6,12 @@ import Rating from "react-rating";
 const AllReviews = () => {
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:5000/allReviews").then((result) => {
-      const data = result.data;
-      setReviews(data);
-    });
+    axios
+      .get("https://pure-inlet-82300.herokuapp.com/allReviews")
+      .then((result) => {
+        const data = result.data;
+        setReviews(data);
+      });
   }, []);
   return (
     <div className="allReviews-container">
