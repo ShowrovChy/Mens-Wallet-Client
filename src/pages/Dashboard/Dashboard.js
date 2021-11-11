@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import AddANewProduct from "../AddANewProduct/AddANewProduct";
 import ManageAllOrders from "../ManageAllOrders/ManageAllOrders";
@@ -10,24 +10,33 @@ import {
   MdOutlinePayment,
   MdOutlineRateReview,
 } from "react-icons/md";
-import { AiFillWallet, AiOutlineShoppingCart } from "react-icons/ai";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import ManageProducts from "../ManageProducts/ManageProducts";
 import Header from "../Shared/Header/Header";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useRouteMatch,
-} from "react-router-dom";
+import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
 import MyOrders from "../MyOrders/MyOrders";
 import useAuth from "../../hooks/useAuth";
 import Review from "../Review/Review";
 import Payment from "../Payment/Payment";
+import MakeAdmin from "../MakeAdmin/MakeAdmin";
+import { RiListSettingsFill, RiUserSettingsFill } from "react-icons/ri";
 const Dashboard = () => {
-  const [isActive, setIsActive] = useState("addProduct");
   const { user, handleUserLogOut } = useAuth();
   let { path, url } = useRouteMatch();
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/checkAdmin/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data[0]?.role === "admin") {
+          setIsAdmin(true);
+        } else {
+          setIsAdmin(false);
+        }
+      });
+  }, [user?.email]);
+  console.log(isAdmin);
   window.scroll(0, 0);
   return (
     <>
@@ -78,65 +87,73 @@ const Dashboard = () => {
                 </Link>
               </h5>
             </li>
-            <li>
-              <h5 className="d-flex align-items-center">
-                <span className="fs-3">
-                  <MdManageSearch />{" "}
-                </span>{" "}
-                <Link
-                  to={`${url}/allProducts`}
-                  className="pt-2 ms-1 text-decoration-none linkColor"
-                >
-                  Manage Products
-                </Link>
-              </h5>
-            </li>
-            <li>
-              <h5 className="d-flex align-items-center">
-                <span className="fs-3">
-                  <AiOutlineShoppingCart />{" "}
-                </span>{" "}
-                <Link
-                  to={`${url}/manageAllOrders`}
-                  className="pt-2 ms-1 text-decoration-none linkColor"
-                >
-                  Manage All Orders
-                </Link>
-              </h5>
-            </li>
-            <li>
-              <h5 className="d-flex align-items-center">
-                <span className="fs-3">
-                  <AiOutlineShoppingCart />{" "}
-                </span>{" "}
-                <Link
-                  to={`${url}/makeAdmin`}
-                  className="pt-2 ms-1 text-decoration-none linkColor"
-                >
-                  Make Admin
-                </Link>
-              </h5>
-            </li>
-            <li>
-              <h5 className="d-flex align-items-center">
-                <span className="fs-3">
-                  <RiAddCircleLine />{" "}
-                </span>{" "}
-                <Link
-                  to={`${url}/addANewProduct`}
-                  className="pt-2 ms-1 text-decoration-none linkColor"
-                >
-                  Add New Product
-                </Link>
-              </h5>
-            </li>
+            {isAdmin && (
+              <>
+                <li>
+                  <h5 className="d-flex align-items-center">
+                    <span className="fs-3">
+                      <MdManageSearch />{" "}
+                    </span>{" "}
+                    <Link
+                      to={`${url}/allProducts`}
+                      className="pt-2 ms-1 text-decoration-none linkColor"
+                    >
+                      Manage Products
+                    </Link>
+                  </h5>
+                </li>
+                <li>
+                  <h5 className="d-flex align-items-center">
+                    <span className="fs-3">
+                      <RiListSettingsFill />{" "}
+                    </span>{" "}
+                    <Link
+                      to={`${url}/manageAllOrders`}
+                      className="pt-2 ms-1 text-decoration-none linkColor"
+                    >
+                      Manage All Orders
+                    </Link>
+                  </h5>
+                </li>
+                <li>
+                  <h5 className="d-flex align-items-center">
+                    <span className="fs-3">
+                      <RiUserSettingsFill />{" "}
+                    </span>{" "}
+                    <Link
+                      to={`${url}/makeAdmin`}
+                      className="pt-2 ms-1 text-decoration-none linkColor"
+                    >
+                      Make Admin
+                    </Link>
+                  </h5>
+                </li>
+                <li>
+                  <h5 className="d-flex align-items-center">
+                    <span className="fs-3">
+                      <RiAddCircleLine />{" "}
+                    </span>{" "}
+                    <Link
+                      to={`${url}/addANewProduct`}
+                      className="pt-2 ms-1 text-decoration-none linkColor"
+                    >
+                      Add New Product
+                    </Link>
+                  </h5>
+                </li>
+              </>
+            )}
             <li>
               <h5>
-                <span className="fs-3">
-                  <FiLogOut />{" "}
-                </span>{" "}
                 <span>
-                  {user.email && <span onClick={handleUserLogOut}>Logout</span>}
+                  {user.email && (
+                    <>
+                      <span className="fs-3">
+                        <FiLogOut />{" "}
+                      </span>{" "}
+                      <span onClick={handleUserLogOut}>Logout</span>
+                    </>
+                  )}
                 </span>
               </h5>
             </li>
@@ -161,6 +178,9 @@ const Dashboard = () => {
             </Route>
             <Route path={`${path}/addANewProduct`}>
               <AddANewProduct></AddANewProduct>
+            </Route>
+            <Route path={`${path}/makeAdmin`}>
+              <MakeAdmin></MakeAdmin>
             </Route>
           </Switch>
         </Col>

@@ -21,50 +21,12 @@ const Signup = () => {
     setUser,
     setError,
     auth,
+    UserInformation,
     userName,
     setUserName,
     updateProfile,
   } = useAuth();
 
-  /* // setUserName
-  setUserName(name);
-
-  // Get and Set User Name
-  const handleName = (e) => {
-    setName(e.target.value);
-  };
-
-  // Get and Set User Email
-
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-  };
-
-  // Get and Set User password
-
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const handleRegistration = (e) => {
-    e.preventDefault();
-    handleUserRegisterWithEmail(email, password)
-      .then((result) => {
-        updateProfile(auth.currentUser, {
-          displayName: userName,
-        });
-        setUser({
-          ...result.user,
-          displayName: userName,
-        });
-        history.push(redirect_uri);
-      })
-      .catch((error) => {
-        setError(error.message);
-      });
-  };
-
- */
   const {
     register,
     reset,
@@ -83,6 +45,7 @@ const Signup = () => {
           ...result.user,
           displayName: data.name,
         });
+        UserInformation(data.email, data.name);
         history.push(redirect_uri);
       })
       .catch((error) => {

@@ -1,35 +1,32 @@
 import React from "react";
 import "./Footer.css";
-import { Button, Col, Row } from "react-bootstrap";
-import { FaHotel } from "react-icons/fa";
+import { Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { CgFacebook, CgInstagram, CgTwitter, CgYoutube } from "react-icons/cg";
-// import { HashLink } from "react-router-hash-link";
-
+import { GrGoogleWallet } from "react-icons/gr";
 const Footer = () => {
   return (
     <div className="pt-5  mt-5">
-      <Row xs={1} md={2} lg={4} className="upperFooterDiv px-5 ">
+      <Row xs={1} md={3} className="upperFooterDiv px-5 ">
         <Col className="mt-3">
           <div>
-            <h2 className="text-warning">
-              <span>
+            <h2 className=" logo-color fw-bold">
+              <span className="fs-1 me-1">
                 {" "}
-                <FaHotel />{" "}
-              </span>{" "}
-              Marriott{" "}
+                <GrGoogleWallet />
+              </span>
+              allet
             </h2>
           </div>
-          <p className=" mt-4 footer-desc">
-            The Walt Disney World Resort, also called Walt Disney World or
-            Disney World, is an entertainment resort complex in Bay Lake and
-            Lake Buena Vista, Florida, United States, near the cities of Orlando
-            and Kissimmee. Opened on October 1, 1971, the resort is owned and
-            operated by Disney Parks.
+          <p className=" mt-4 footer-desc ">
+            The Men's Wallet Company is wellknown to worldwide ,We Care Our
+            Product and Quality , We Focus on Our customer satisfaction and
+            their experience.We always provide the best Product to consumers.Our
+            honesty make us number one Website selling men's wallet.
           </p>
         </Col>
-        <Col className="mt-4">
-          <h4 className="text-warning mb-4">Services</h4>
+        <Col className="mt-4 ps-5">
+          <h4 className="text-danger mb-4">Services</h4>
           <ul className="footer-list ul-p">
             <li>Support</li>
             <li>
@@ -42,26 +39,13 @@ const Footer = () => {
             <li>Privacy Policy</li>
           </ul>
         </Col>
-        <Col className="mt-4">
-          <h4 className="text-warning">Quick Links</h4>
+
+        <Col className="mt-4 ps-5">
+          <h4 className="text-danger">Contact Us</h4>
           <ul className="footer-list ul-p">
-            <li>Tour guides</li>
-            <li>Online Booking</li>
-            <li>Blogs</li>
-            <li>
-              <Link to="/contact" className="footerLink">
-                Contact{" "}
-              </Link>{" "}
-            </li>
-          </ul>
-        </Col>
-        <Col className="mt-4">
-          <h4 className="text-warning">Contact Us</h4>
-          <ul className="footer-list ul-p">
-            <li>+1 1634 53 759</li>
             <li>+5 1554 56 858</li>
-            <li>info@marriott.com</li>
-            <li>hello@marriott.com</li>
+            <li>info@menswallet.com</li>
+            <li>hello@menswallet.com</li>
             <li>Br1. 26/B Street, New York, USA</li>
           </ul>
         </Col>
@@ -95,7 +79,7 @@ const Footer = () => {
       </div>
       <div className="lowerFooterDiv mt-4">
         <p className="text-center text-white">
-          <small>Copyright @2021. All Rights Reserved By Marriott</small>
+          <small>Copyright @2021. All Rights Reserved By Men's Wallet</small>
         </p>
       </div>
     </div>

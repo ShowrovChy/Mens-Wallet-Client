@@ -1,39 +1,29 @@
-.iconStyle {
-  width: 40px;
-  margin-right: 4px;
-  border-radius: 50%;
-}
-.gg-icon {
-  width: 37px;
-}
-
-.login-main-Container {
+.admin-main-Container {
   margin: 50px 0 0 0;
 }
 
-.login-main-Container form {
+.admin-main-Container form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.login-main-Container form input,
-textarea {
+.admin-main-Container form input {
   width: 50%;
   margin-top: 15px;
   padding: 3px 10px;
+  border: 0 !important;
   border-bottom: 2px solid #cc0000 !important;
   height: 45px;
 }
-.login-main-Container form textarea {
-  border-bottom: 2px solid #cc0000 !important;
-}
+
 .field:focus {
+  border: 0 !important;
   box-shadow: none !important;
   outline: 0 !important;
 }
-.login-main-Container form :nth-child(3) {
-  background-color: #cc0000;
+.field-btn {
+  background-color: #cc0000 !important;
   border-radius: 10px !important;
   margin-top: 30px !important;
   color: #fff;
@@ -44,11 +34,11 @@ textarea {
     display: block !important;
     text-align: center;
   }
-  .login-main-Container form input,
+  .admin-main-Container form input,
   textarea {
     width: 90%;
   }
-  .login-main-Container {
+  .admin-main-Container {
     height: 100%;
   }
 }

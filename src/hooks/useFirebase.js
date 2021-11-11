@@ -1,7 +1,5 @@
 import {
   getAuth,
-  signInWithPopup,
-  GoogleAuthProvider,
   updateProfile,
   signOut,
   signInWithEmailAndPassword,
@@ -17,12 +15,7 @@ const useFirebase = () => {
   const [error, setError] = useState("");
   const [userName, setUserName] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-  const googleProvider = new GoogleAuthProvider();
   const auth = getAuth();
-  //----- Log in with Google ------
-  const handleUserGoogleLogIn = () => {
-    return signInWithPopup(auth, googleProvider);
-  };
 
   //----- Register with Email Password-----
   const handleUserRegisterWithEmail = (email, password) => {
@@ -37,6 +30,7 @@ const useFirebase = () => {
   // Observe User State
 
   useEffect(() => {
+    setIsLoading(true);
     const unsubscribed = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
@@ -46,7 +40,17 @@ const useFirebase = () => {
       setIsLoading(false);
     });
     return () => unsubscribed;
-  }, []);
+  }, [auth]);
+
+  const UserInformation = (email, name) => {
+    fetch("http://localhost:5000/users", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ email, name }),
+    })
+      .then((res) => res.json())
+      .then((result) => console.log(result));
+  };
 
   // Sign Out
   const handleUserLogOut = () => {
@@ -55,10 +59,10 @@ const useFirebase = () => {
     });
   };
   return {
-    handleUserGoogleLogIn,
     handleUserSignInWithEmail,
     handleUserRegisterWithEmail,
     handleUserLogOut,
+    UserInformation,
     setUser,
     setError,
     updateProfile,

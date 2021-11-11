@@ -1,7 +1,7 @@
 import React from "react";
 import "./Header.css";
 import { Nav, Navbar, Button } from "react-bootstrap";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { BiUserCircle } from "react-icons/bi";
 import useAuth from "../../../hooks/useAuth";
 import { GrGoogleWallet } from "react-icons/gr";

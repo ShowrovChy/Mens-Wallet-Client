@@ -1,0 +1,17 @@
+.subscription-container {
+  width: 100%;
+  height: 70vh;
+  margin-top: 100px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.658), rgba(0, 0, 0, 0.658)),
+    url("https://i.ibb.co/KhbPPC6/best-wallets-men-luxury-luxe-digital.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+.top-sub-text {
+  color: whitesmoke;
+}
+.news-text {
+  font-size: 4em;
+  color: whitesmoke;
+}
