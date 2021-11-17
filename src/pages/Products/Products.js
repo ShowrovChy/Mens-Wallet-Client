@@ -1,9 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Col, Container, Row, Button } from "react-bootstrap";
+import { Col, Container, Row, Button, Spinner } from "react-bootstrap";
 import "./Products.css";
 import { Link } from "react-router-dom";
 import Header from "../Shared/Header/Header";
+import AOS from "aos";
+import "aos/dist/aos.css";
+// ......
+AOS.init();
 const Products = () => {
   const [products, setProducts] = useState([]);
 
@@ -15,6 +19,13 @@ const Products = () => {
         setProducts(data);
       });
   }, []);
+  if (products.length === 0) {
+    return (
+      <div className="text-center mt-5 p-5 fw-light">
+        <Spinner animation="border" variant="danger" />
+      </div>
+    );
+  }
   return (
     <>
       <Header></Header>
@@ -35,6 +46,8 @@ const Products = () => {
                 lg={4}
                 md={6}
                 sx={12}
+                data-aos="zoom-in-up"
+                data-aos-duration="1200"
                 key={product?._id}
                 className="column-products px-3"
               >
