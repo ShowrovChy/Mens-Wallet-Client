@@ -6,6 +6,7 @@ import HomeProducts from "../HomeProducts/HomeProducts";
 import Subscription from "../Subscription/Subscription";
 
 const Home = () => {
+  window.scroll(0, 0);
   return (
     <div>
       <Header></Header>
