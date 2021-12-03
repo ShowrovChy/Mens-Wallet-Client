@@ -1,13 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import AOS from "aos";
-import "aos/dist/aos.css";
+
 // ......
 const Product = ({ product }) => {
-  useEffect(() => {
-    AOS.init({ duration: 1200, offset: 200 });
-  }, []);
   return (
     <Col
       lg={4}
@@ -16,7 +12,7 @@ const Product = ({ product }) => {
       key={product?._id}
       className="column-products px-3"
     >
-      <div data-aos="fade-right" className="col-inside-wrapper ">
+      <div className="col-inside-wrapper ">
         <div className=" overflow-hidden ser-image-div">
           <img
             className="rounded rounded-3 product-image"

@@ -1,5 +1,5 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { Container, Row, Spinner } from "react-bootstrap";
 import "./Products.css";
 import Header from "../Shared/Header/Header";
